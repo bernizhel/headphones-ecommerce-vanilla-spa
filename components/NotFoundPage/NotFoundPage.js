@@ -1,5 +1,8 @@
 import { Component } from '../../utils/render/Component.js';
-import { getLocalizedNumber, getLocalizedText } from '../../service/i18nStore.js';
+import {
+    getLocalizedNumber,
+    getLocalizedText
+} from '../../service/i18nStore.js';
 import { changeRoute } from '../../service/routerStore.js';
 
 export class NotFoundPage extends Component {
@@ -15,7 +18,8 @@ export class NotFoundPage extends Component {
             </section> 
         `;
 
-        notFoundPage.querySelector('.error__to_home').addEventListener('click', () => changeRoute.call('/'));
+        notFoundPage.querySelector('.error__to_home')
+            .addEventListener('click', () => changeRoute.call('/'));
 
         return notFoundPage;
     }

@@ -5,7 +5,9 @@ import { $favoritesStore } from './favoritesStore.js';
 import { $productsStore } from './productsStore.js';
 
 /** @type {import('../utils/store/Store.js').Store[]} */
-const stores = [ $routerStore, $i18nStore, $cartStore, $favoritesStore, $productsStore ];
+const stores = [
+    $routerStore, $i18nStore, $cartStore, $favoritesStore, $productsStore
+];
 
 export function initStores() {
     stores.forEach((store) => store.init());

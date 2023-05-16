@@ -1,7 +1,15 @@
 import { Component } from '../../utils/render/Component.js';
-import { getLocalizedCurrency, getLocalizedNumber, getLocalizedText } from '../../service/i18nStore.js';
+import {
+    getLocalizedCurrency,
+    getLocalizedNumber,
+    getLocalizedText
+} from '../../service/i18nStore.js';
 import { addToCart } from '../../service/cartStore.js';
-import { addToFavorites, isFavorite, removeFromFavorites } from '../../service/favoritesStore.js';
+import {
+    addToFavorites,
+    isFavorite,
+    removeFromFavorites
+} from '../../service/favoritesStore.js';
 
 /**
  * @typedef {import('../../api/products.js').Product} ProductsItemProps
@@ -39,7 +47,8 @@ export class ProductsItem extends Component {
             likeButton.addEventListener('click', () => addToFavorites.call(this.props));
         }
 
-        productsItem.querySelector('.product__info_buy').addEventListener('click', () => addToCart.call(this.props));
+        productsItem.querySelector('.product__info_buy')
+            .addEventListener('click', () => addToCart.call(this.props));
 
         return productsItem;
     }

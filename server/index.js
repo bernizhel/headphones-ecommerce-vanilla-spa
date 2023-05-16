@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.static(getPath()));
 
-app.get('*', function(_, response) {
+app.get('*', function (_, response) {
     response.sendFile(getPath('index.html'));
 });
 

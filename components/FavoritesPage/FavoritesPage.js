@@ -16,7 +16,9 @@ export class FavoritesPage extends Component {
             </section>
         `;
 
-        favoritesPage.querySelector('.store_products-container').append(...favoritesItems.map(itemData => new FavoritesItem(itemData).buildDOM()));
+        favoritesPage
+            .querySelector('.store_products-container')
+            .append(...favoritesItems.map(itemData => new FavoritesItem(itemData).buildDOM()));
 
         return favoritesPage;
     }

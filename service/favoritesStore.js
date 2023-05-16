@@ -89,5 +89,6 @@ export function getFavoritesCount() {
  * @returns {boolean}
  */
 export function isFavorite(productId) {
-    return $favoritesStore.getState().find(item => item.id === productId) !== undefined;
+    return $favoritesStore.getState()
+        .find(item => item.id === productId) !== undefined;
 }

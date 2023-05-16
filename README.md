@@ -1,6 +1,6 @@
 # Headphones ECommerce Vanilla SPA
 
-Headphones ECommerce website implemented with self-made vanilla JS SPA 
+Headphones ECommerce website implemented with self-made vanilla JS SPA
 
 ## Prerequisites
 
@@ -11,6 +11,7 @@ Headphones ECommerce website implemented with self-made vanilla JS SPA
 ## Usage
 
 Run the following command:
-```sh
+
+```bash
 ./start.sh
 ```

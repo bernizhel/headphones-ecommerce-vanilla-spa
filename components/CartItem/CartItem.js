@@ -1,5 +1,8 @@
 import { Component } from '../../utils/render/Component.js';
-import { getLocalizedCurrency, getLocalizedNumber } from '../../service/i18nStore.js';
+import {
+    getLocalizedCurrency,
+    getLocalizedNumber
+} from '../../service/i18nStore.js';
 import {
     decrementProductCounter,
     getProductTotalPrice,
@@ -14,7 +17,7 @@ import {
 export class CartItem extends Component {
     buildDOM() {
         const cartItem = document.createElement('div');
-        cartItem.classList.add('cart__product')
+        cartItem.classList.add('cart__product');
 
         cartItem.innerHTML = `
                 <div class="cart__products_product">
@@ -35,9 +38,12 @@ export class CartItem extends Component {
                 </div>
         `;
 
-        cartItem.querySelector('.products__number_minus').addEventListener('click', () => decrementProductCounter.call(this.props.id));
-        cartItem.querySelector('.products__number_plus').addEventListener('click', () => incrementProductCounter.call(this.props.id));
-        cartItem.querySelector('.features-delete').addEventListener('click', () => removeFromCart.call(this.props.id));
+        cartItem.querySelector('.products__number_minus')
+            .addEventListener('click', () => decrementProductCounter.call(this.props.id));
+        cartItem.querySelector('.products__number_plus')
+            .addEventListener('click', () => incrementProductCounter.call(this.props.id));
+        cartItem.querySelector('.features-delete')
+            .addEventListener('click', () => removeFromCart.call(this.props.id));
 
         return cartItem;
     }

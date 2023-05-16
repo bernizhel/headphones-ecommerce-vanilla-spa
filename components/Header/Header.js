@@ -28,10 +28,11 @@ export class Header extends Component {
          * @param {string} route
          */
         function changeRouteButtonHandler(selector, route) {
-            header.querySelector(selector).addEventListener('click', (event) => {
-                event.preventDefault();
-                changeRoute.call(route);
-            });
+            header.querySelector(selector)
+                .addEventListener('click', (event) => {
+                    event.preventDefault();
+                    changeRoute.call(route);
+                });
         }
 
         changeRouteButtonHandler('.logo', '/');

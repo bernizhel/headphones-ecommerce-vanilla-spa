@@ -124,7 +124,8 @@ export function getCartCount() {
  * @returns {number}
  */
 export function getTotalPrice() {
-    return $cartStore.getState().reduce((total, item) => total + item.price * item.count, 0);
+    return $cartStore.getState()
+        .reduce((total, item) => total + item.price * item.count, 0);
 }
 
 /**
@@ -132,6 +133,7 @@ export function getTotalPrice() {
  * @returns {number}
  */
 export function getProductTotalPrice(productId) {
-    const productInCart = $cartStore.getState().find(item => item.id === productId);
+    const productInCart = $cartStore.getState()
+        .find(item => item.id === productId);
     return productInCart.count * productInCart.price;
 }

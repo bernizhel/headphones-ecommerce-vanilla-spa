@@ -1,5 +1,9 @@
 import { Component } from '../../utils/render/Component.js';
-import { getLocalizedCurrency, getLocalizedNumber, getLocalizedText } from '../../service/i18nStore.js';
+import {
+    getLocalizedCurrency,
+    getLocalizedNumber,
+    getLocalizedText
+} from '../../service/i18nStore.js';
 import { removeFromFavorites } from '../../service/favoritesStore.js';
 import { addToCart } from '../../service/cartStore.js';
 
@@ -30,8 +34,10 @@ export class FavoritesItem extends Component {
                 </div> 
         `;
 
-        favoritesItem.querySelector('.product__info_like').addEventListener('click', () => removeFromFavorites.call(this.props.id));
-        favoritesItem.querySelector('.product__info_buy').addEventListener('click', () => addToCart.call(this.props));
+        favoritesItem.querySelector('.product__info_like')
+            .addEventListener('click', () => removeFromFavorites.call(this.props.id));
+        favoritesItem.querySelector('.product__info_buy')
+            .addEventListener('click', () => addToCart.call(this.props));
 
         return favoritesItem;
     }
