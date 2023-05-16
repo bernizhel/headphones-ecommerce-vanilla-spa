@@ -22,7 +22,7 @@
 
 /**
  * @typedef {{
- *  locale: Locale;
+ *  locales: Locale[];
  *  translation: Translation;
  * }} TranslationEntry
  */
@@ -32,7 +32,7 @@
  */
 export const translations = [
     {
-        locale: 'ru-RU',
+        locales: ['ru', 'ru-RU'],
         translation: {
             favorites: 'Избранное',
             cart: 'Корзина',
@@ -48,7 +48,7 @@ export const translations = [
         },
     },
     {
-        locale: 'en-US',
+        locales: ['en', 'en-US'],
         translation: {
             favorites: 'Favorites',
             cart: 'Cart',
@@ -65,10 +65,17 @@ export const translations = [
     },
 ];
 
+const defaultTranslation = translations.find(entry => entry.locales.includes('en'));
+
 /**
  * @param {Locale} locale
  * @returns {TranslationEntry}
  */
-export const fetchTranslation = (locale) => {
-    return translations.find((entry) => entry.locale === locale);
+export const fetchTranslationEntry = (locale) => {
+    const foundTranslation = translations.find((entry) => entry.locales.includes(locale))
+    if (foundTranslation !== undefined) {
+        return foundTranslation;
+    }
+
+    return defaultTranslation;
 };

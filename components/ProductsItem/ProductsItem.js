@@ -7,8 +7,8 @@ import {
 import { addToCart } from '../../service/cartStore.js';
 import {
     addToFavorites,
+    removeFromFavorites,
     isFavorite,
-    removeFromFavorites
 } from '../../service/favoritesStore.js';
 
 /**

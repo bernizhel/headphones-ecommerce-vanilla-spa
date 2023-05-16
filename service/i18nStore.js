@@ -1,8 +1,8 @@
-import { fetchTranslation } from '../api/translations.js';
-import { getUserLocale } from '../utils/i18n.js';
-import { LocalStorage } from '../utils/LocalStorage.js';
-import { Store } from '../utils/store/Store.js';
-import { StoreEvent } from '../utils/store/StoreEvent.js';
+import {fetchTranslationEntry} from '../api/translations.js';
+import {getUserLocale} from '../utils/i18n.js';
+import {LocalStorage} from '../utils/LocalStorage.js';
+import {Store} from '../utils/store/Store.js';
+import {StoreEvent} from '../utils/store/StoreEvent.js';
 
 /**
  * @typedef {import('../api/translations.js').TranslationEntry} I18nState
@@ -28,8 +28,9 @@ function getInitialState() {
         return i18nStorage.get();
     }
 
-    const state = fetchTranslation(getUserLocale());
-    document.documentElement.setAttribute('lang', state.locale);
+    const userLocale = getUserLocale();
+    const state = fetchTranslationEntry(userLocale);
+    document.documentElement.setAttribute('lang', userLocale);
     i18nStorage.set(state);
     return state;
 }
@@ -40,7 +41,7 @@ function getInitialState() {
  * @returns {I18nState}
  */
 function handleChangeLocale(state, newLocale) {
-    const newState = fetchTranslation(newLocale);
+    const newState = fetchTranslationEntry(newLocale);
     document.documentElement.setAttribute('lang', newLocale);
     i18nStorage.set(newState);
     return newState;
@@ -60,7 +61,7 @@ export function getLocalizedText(tag) {
  * @returns {string} localized currency by given amount
  */
 export function getLocalizedCurrency(amount, options = {}) {
-    return new Intl.NumberFormat($i18nStore.getState().locale, {
+    return new Intl.NumberFormat($i18nStore.getState().locales[0], {
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol',
@@ -75,12 +76,12 @@ export function getLocalizedCurrency(amount, options = {}) {
  * @returns {string} localized number by given amount
  */
 export function getLocalizedNumber(amount, options = {}) {
-    return new Intl.NumberFormat($i18nStore.getState().locale, options).format(amount);
+    return new Intl.NumberFormat($i18nStore.getState().locales[0], options).format(amount);
 }
 
 /**
- * @returns {import('../api/translations.js').Locale}
+ * @returns {import('../api/translations.js').Locale[]}
  */
-export function getLocale() {
-    return $i18nStore.getState().locale;
+export function getLocales() {
+    return $i18nStore.getState().locales;
 }

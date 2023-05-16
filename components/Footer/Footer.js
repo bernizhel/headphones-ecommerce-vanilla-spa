@@ -1,10 +1,10 @@
-import { Component } from '../../utils/render/Component.js';
+import {Component} from '../../utils/render/Component.js';
 import {
     changeLocale,
-    getLocale,
+    getLocales,
     getLocalizedText
 } from '../../service/i18nStore.js';
-import { changeRoute } from '../../service/routerStore.js';
+import {changeRoute} from '../../service/routerStore.js';
 
 export class Footer extends Component {
     buildDOM() {
@@ -14,21 +14,21 @@ export class Footer extends Component {
         footer.innerHTML = `
              <p class="footer__logo logo">QPICK</p>
                 <div class="footer__catalog">
-                    <a href="/favorites" class="footer__catalog_container-images style-text-regular">${ getLocalizedText('favorites') }</a>
-                    <a href="/cart" class="footer__catalog_container-cart style-text-regular">${ getLocalizedText('cart') }</a>
-                    <a href="https://github.com/bernizhel" class="footer__catalog_container-favorites style-text-regular">${ getLocalizedText('contacts') }</a>
+                    <a href="/favorites" class="footer__catalog_container-images style-text-regular">${getLocalizedText('favorites')}</a>
+                    <a href="/cart" class="footer__catalog_container-cart style-text-regular">${getLocalizedText('cart')}</a>
+                    <a href="https://github.com/bernizhel" class="footer__catalog_container-favorites style-text-regular">${getLocalizedText('contacts')}</a>
                 </div>
 
                 <div class="footer__translation">
                     <div class="footer__translation">
-                        <p class="footer__translation-title style-text-regular">${ getLocalizedText('serviceConditions') }</p>
+                        <p class="footer__translation-title style-text-regular">${getLocalizedText('serviceConditions')}</p>
                         <div class="footer__translation_container">
                             <img src="/images/footer/planet.svg" alt="" class="footer__translation-logo" />
                             <ul class="footer__translation-lang">
-                                <li class="footer__translation-leng style-text-medium ${ getLocale() === 'ru-RU' ?
-            'active' : '' }" data-locale="ru-RU">Рус</li>
-                                <li class="footer__translation-leng style-text-medium ${ getLocale() === 'en-US' ?
-            'active' : '' }" data-locale="en-US">Eng</li>
+                                <li class="footer__translation-leng style-text-medium ${getLocales().includes('ru-RU') ?
+                                    'active' : ''}" data-locale="ru-RU">Рус</li>
+                                <li class="footer__translation-leng style-text-medium ${getLocales().includes('en-US') ? 
+                                    'active' : ''}" data-locale="en-US">Eng</li>
                             </ul>
                         </div>
                     </div>
