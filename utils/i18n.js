@@ -1,10 +1,10 @@
 /**
- * @returns {string} user's locale in BCP 47 format
+ * @returns {string[]} user's locale in BCP 47 format
  */
-export function getUserLocale() {
+export function getUserLocales() {
     if (navigator.languages !== undefined) {
-        return navigator.languages[0];
+        return navigator.languages;
     }
 
-    return navigator.language;
+    return [navigator.language];
 }

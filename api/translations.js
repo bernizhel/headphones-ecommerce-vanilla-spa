@@ -65,17 +65,12 @@ export const translations = [
     },
 ];
 
-const defaultTranslation = translations.find(entry => entry.locales.includes('en'));
+export const defaultTranslation = translations.find((entry) => entry.locales.includes('en'));
 
 /**
  * @param {Locale} locale
  * @returns {TranslationEntry}
  */
 export const fetchTranslationEntry = (locale) => {
-    const foundTranslation = translations.find((entry) => entry.locales.includes(locale))
-    if (foundTranslation !== undefined) {
-        return foundTranslation;
-    }
-
-    return defaultTranslation;
+    return translations.find((entry) => entry.locales.includes(locale));
 };

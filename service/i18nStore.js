@@ -1,5 +1,5 @@
-import {fetchTranslationEntry} from '../api/translations.js';
-import {getUserLocale} from '../utils/i18n.js';
+import {defaultTranslation, fetchTranslationEntry} from '../api/translations.js';
+import {getUserLocales} from '../utils/i18n.js';
 import {LocalStorage} from '../utils/LocalStorage.js';
 import {Store} from '../utils/store/Store.js';
 import {StoreEvent} from '../utils/store/StoreEvent.js';
@@ -14,8 +14,7 @@ export const changeLocale = new StoreEvent();
 /**
  * @type {Store<I18nState>}
  */
-export const $i18nStore = new Store(getInitialState)
-    .on(changeLocale, handleChangeLocale);
+export const $i18nStore = new Store(getInitialState).on(changeLocale, handleChangeLocale);
 
 /** @type {LocalStorage<I18nState>} */
 const i18nStorage = new LocalStorage('i18n');
@@ -28,9 +27,20 @@ function getInitialState() {
         return i18nStorage.get();
     }
 
-    const userLocale = getUserLocale();
-    const state = fetchTranslationEntry(userLocale);
-    document.documentElement.setAttribute('lang', userLocale);
+    const userLocales = getUserLocales();
+    let state;
+    for (const userLocale of userLocales) {
+        state = fetchTranslationEntry(userLocale);
+        if (state !== undefined) {
+            break;
+        }
+    }
+
+    if (state === undefined) {
+        state = defaultTranslation;
+    }
+
+    document.documentElement.setAttribute('lang', userLocales[0]);
     i18nStorage.set(state);
     return state;
 }
