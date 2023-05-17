@@ -1,6 +1,6 @@
 # Headphones ECommerce Vanilla SPA
 
-Headphones ECommerce website implemented with self-made vanilla JS SPA
+Headphones ECommerce SPA website on vanilla JS with JSDoc and absolutely fabuluous markup
 
 ## Prerequisites
 
