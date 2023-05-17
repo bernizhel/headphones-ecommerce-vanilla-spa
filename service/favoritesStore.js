@@ -9,7 +9,7 @@ import { StoreEvent } from '../utils/store/StoreEvent.js';
 /** @type {StoreEvent<Product>} */
 export const addToFavorites = new StoreEvent();
 
-/** @type {StoreEvent<Product>} */
+/** @type {StoreEvent<ProductID>} */
 export const removeFromFavorites = new StoreEvent();
 
 /** @type {StoreEvent<FavoritesState>} */

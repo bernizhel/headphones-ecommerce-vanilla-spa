@@ -1,9 +1,9 @@
 /**
- * @template {object} T
+ * @template T
  */
 export class Component {
     /**
-     * @param {T} props
+     * @param {infer T} props
      */
     constructor(props = {}) {
         this.props = props;

@@ -45,8 +45,9 @@ export class Router extends Component {
      * @throws {ReferenceError} if there is no such a route
      */
     #renderRoute(url) {
-        const mappedComponent = this.props.mapper.find((entry) => entry.path ===
-            url)?.component;
+        const mappedComponent = this.props.mapper.find((entry) => {
+            return entry.path === url;
+        })?.component;
 
         if (mappedComponent === undefined) {
             throw new ReferenceError('The given route is not processed by any component.');

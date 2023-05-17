@@ -12,7 +12,7 @@ export class Store {
     /** @type {function(): S} */ #getInitialState;
 
     /**
-     * @param {function(): S} getInitialState
+     * @param {function(): infer S} getInitialState
      */
     constructor(getInitialState) {
         this.#getInitialState = getInitialState;
@@ -25,7 +25,7 @@ export class Store {
     /**
      * @template P
      * @param {import('./StoreEvent').StoreEvent<P>} storeEvent
-     * @param {StoreEventCallback<S, P>} storeEventCallback
+     * @param {StoreEventCallback<infer S, P>} storeEventCallback
      * @returns {typeof this}
      */
     on(storeEvent, storeEventCallback) {

@@ -70,7 +70,7 @@ export function getLocalizedTag(tag) {
 
 /**
  * @param {number} amount
- * @param {NumberFormatOptions} options?
+ * @param {infer NumberFormatOptions} options?
  * @returns {string} localized currency by given amount
  */
 export function getLocalizedCurrency(amount, options = {}) {

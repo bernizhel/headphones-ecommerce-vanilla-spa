@@ -12,7 +12,7 @@ export class StoreEvent {
     /** @type {ProcessedStoreEventCallback<P>[]} */ #subscriberCallbacks = [];
 
     /**
-     * @param {P} payload
+     * @param {infer P} payload
      */
     call(payload = {}) {
         this.#subscriberCallbacks.forEach((callback) => callback(payload));
