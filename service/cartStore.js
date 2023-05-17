@@ -15,13 +15,13 @@ import { StoreEvent } from '../utils/store/StoreEvent.js';
 /** @type {StoreEvent<Product>} */
 export const addToCart = new StoreEvent();
 
-/** @type {StoreEvent<Product>} */
+/** @type {StoreEvent<ProductID>} */
 export const removeFromCart = new StoreEvent();
 
-/** @type {StoreEvent<Product>} */
+/** @type {StoreEvent<ProductID>} */
 export const incrementProductCounter = new StoreEvent();
 
-/** @type {StoreEvent<Product>} */
+/** @type {StoreEvent<ProductID>} */
 export const decrementProductCounter = new StoreEvent();
 
 /**
