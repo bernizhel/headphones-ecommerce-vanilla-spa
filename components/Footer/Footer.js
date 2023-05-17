@@ -57,7 +57,7 @@ export class Footer extends Component {
         footer.querySelectorAll('[data-locale]')
             .forEach(element => {
                 if (getLocales()
-                    .includes(element.target.dataset[ 'locale' ])) {
+                    .includes(element.dataset[ 'locale' ])) {
                     element.classList.add('active');
                 }
                 element.addEventListener('click', (event) => changeLocale.call(event.target.dataset[ 'locale' ]));
