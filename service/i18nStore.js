@@ -85,7 +85,7 @@ export function getLocalizedCurrency(amount, options = {}) {
 
 /**
  * @param {number} amount
- * @param {NumberFormatOptions} options?
+ * @param {infer NumberFormatOptions} options?
  * @returns {string} localized number by given amount
  */
 export function getLocalizedNumber(amount, options = {}) {
