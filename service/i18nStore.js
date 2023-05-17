@@ -65,7 +65,7 @@ function handleChangeLocale(state, newLocale) {
  */
 export function getLocalizedTag(tag) {
     return $i18nStore.getState().translation[ tag ] ||
-        defaultTranslation[ tag ] || tag;
+        defaultTranslation.translation[ tag ] || tag;
 }
 
 /**
