@@ -1,7 +1,7 @@
 import { Component } from '../../utils/render/Component.js';
 import {
     getLocalizedNumber,
-    getLocalizedText,
+    getLocalizedTag,
 } from '../../service/i18nStore.js';
 import { changeRoute } from '../../service/routerStore.js';
 
@@ -13,8 +13,8 @@ export class NotFoundPage extends Component {
         notFoundPage.innerHTML = `
             <section class="error__container">
                 <p class="error__title text-SemiBold">${ getLocalizedNumber(404) }</p>
-                <p class="error__subtitle text-SemiBold">${ getLocalizedText('notFound') }</p>
-                <button class="error__to_home text-SemiBold">${ getLocalizedText('backToProducts') }</button>
+                <p class="error__subtitle text-SemiBold">${ getLocalizedTag('notFound') }</p>
+                <button class="error__to_home text-SemiBold">${ getLocalizedTag('backToProducts') }</button>
             </section> 
         `;
 

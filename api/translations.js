@@ -1,5 +1,5 @@
 /**
- * @typedef {string} Locale
+ * @typedef {string} LocaleString
  */
 
 /**
@@ -22,7 +22,7 @@
 
 /**
  * @typedef {{
- *  locales: Locale[];
+ *  locales: LocaleString[];
  *  translation: Translation;
  * }} TranslationEntry
  */
@@ -65,11 +65,12 @@ export const translations = [
     },
 ];
 
+export const DEFAULT_LOCALE = 'ru';
 export const defaultTranslation = translations.find(
-    (entry) => entry.locales.includes('en'));
+    (entry) => entry.locales.includes(DEFAULT_LOCALE));
 
 /**
- * @param {Locale} locale
+ * @param {LocaleString} locale
  * @returns {TranslationEntry}
  */
 export const fetchTranslationEntry = (locale) => {

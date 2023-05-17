@@ -1,6 +1,6 @@
 import { Component } from '../../utils/render/Component.js';
 import { $favoritesStore } from '../../service/favoritesStore.js';
-import { getLocalizedText } from '../../service/i18nStore.js';
+import { getLocalizedTag } from '../../service/i18nStore.js';
 import { FavoritesItem } from '../FavoritesItem/FavoritesItem.js';
 
 export class FavoritesPage extends Component {
@@ -10,7 +10,7 @@ export class FavoritesPage extends Component {
         const favoritesPage = document.createElement('main');
 
         favoritesPage.innerHTML = `
-            <h2 class="title___cart_products text-SemiBold">${ getLocalizedText('favorites') }</h2>
+            <h2 class="title___cart_products text-SemiBold">${ getLocalizedTag('favorites') }</h2>
             <section class="store_products">
                 <div class="store_products-container"></div>
             </section>

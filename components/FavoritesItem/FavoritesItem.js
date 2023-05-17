@@ -2,7 +2,7 @@ import { Component } from '../../utils/render/Component.js';
 import {
     getLocalizedCurrency,
     getLocalizedNumber,
-    getLocalizedText,
+    getLocalizedTag,
 } from '../../service/i18nStore.js';
 import { removeFromFavorites } from '../../service/favoritesStore.js';
 import { addToCart } from '../../service/cartStore.js';
@@ -29,7 +29,7 @@ export class FavoritesItem extends Component {
                             <p class="product__info_rating-text card-text-SemiBold">${ getLocalizedNumber(this.props.rate) }</p>
                         </div>
                         <bottom class="product__info_like"><img src="/images/favorites/heart-inactive.svg" class="product__info_like-passive" alt="" /></bottom>
-                        <bottom class="product__info_buy card-text-SemiBold">${ getLocalizedText('buy') }</bottom>
+                        <bottom class="product__info_buy card-text-SemiBold">${ getLocalizedTag('buy') }</bottom>
                     </div>
                 </div> 
         `;

@@ -11,13 +11,14 @@ import { StoreEvent } from '../utils/store/StoreEvent.js';
  * @typedef {import('../api/translations.js').TranslationEntry} I18nState
  */
 
-/** @type {StoreEvent<import('../api/translations.js').Locale>} */
+/** @type {StoreEvent<LocaleString>} */
 export const changeLocale = new StoreEvent();
 
 /**
  * @type {Store<I18nState>}
  */
-export const $i18nStore = new Store(getInitialState).on(changeLocale, handleChangeLocale);
+export const $i18nStore = new Store(getInitialState)
+    .on(changeLocale, handleChangeLocale);
 
 /** @type {LocalStorage<I18nState>} */
 const i18nStorage = new LocalStorage('i18n');
@@ -39,10 +40,7 @@ function getInitialState() {
         }
     }
 
-    if (state === undefined) {
-        state = defaultTranslation;
-    }
-
+    state ??= defaultTranslation;
     document.documentElement.setAttribute('lang', userLocales[ 0 ]);
     i18nStorage.set(state);
     return state;
@@ -50,7 +48,7 @@ function getInitialState() {
 
 /**
  * @param {I18nState} state
- * @param {import('../api/translations.js').Locale} newLocale
+ * @param {LocaleString} newLocale
  * @returns {I18nState}
  */
 function handleChangeLocale(state, newLocale) {
@@ -62,10 +60,12 @@ function handleChangeLocale(state, newLocale) {
 
 /**
  * @param {string} tag
- * @returns {string} translated text by given tag
+ * @returns {string} try get translation of the provided tag otherwise
+ * returns default translation's text and otherwise returns the tag itself
  */
-export function getLocalizedText(tag) {
-    return $i18nStore.getState().translation[ tag ] || tag;
+export function getLocalizedTag(tag) {
+    return $i18nStore.getState().translation[ tag ] ||
+        defaultTranslation[ tag ] || tag;
 }
 
 /**
@@ -93,7 +93,7 @@ export function getLocalizedNumber(amount, options = {}) {
 }
 
 /**
- * @returns {import('../api/translations.js').Locale[]}
+ * @returns {LocaleString[]}
  */
 export function getLocales() {
     return $i18nStore.getState().locales;

@@ -1,6 +1,6 @@
 import { Component } from '../../utils/render/Component.js';
 import { ProductsItem } from '../ProductsItem/ProductsItem.js';
-import { getLocalizedText } from '../../service/i18nStore.js';
+import { getLocalizedTag } from '../../service/i18nStore.js';
 
 /**
  * @typedef {import('../../api/products.js').ProductsGroup} ProductsGroupProps
@@ -11,7 +11,7 @@ export class ProductsGroup extends Component {
         const productsGroup = document.createElement('div');
 
         productsGroup.innerHTML = `
-            <h2 class="category-products">${ getLocalizedText(this.props.groupTitle) }</h2>
+            <h2 class="category-products">${ getLocalizedTag(this.props.groupTitle) }</h2>
             <section class="store_products">
                 <div class="store_products-container"></div>
             </section>
