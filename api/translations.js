@@ -63,6 +63,22 @@ export const translations = [
             backToProducts: 'Back to the products page',
         },
     },
+    {
+        locales: ['es', 'es-ES'],
+        translation: {
+            favorites: 'Favoritos',
+            cart: 'Carrito',
+            contacts: 'Contactos',
+            serviceConditions: 'Condiciones de servicio',
+            wiredHeadphones: 'Auriculares con cable',
+            wirelessHeadphones: 'Auriculares inalámbricos',
+            buy: 'Añadir al carrito',
+            total: 'Total',
+            proceedToOrder: 'Proceder a la compra',
+            notFound: 'Lo sentimos, la página que buscas no existe',
+            backToProducts: 'volver a la página de productos',
+        },
+    },
 ];
 
 export const DEFAULT_LOCALE = 'ru';

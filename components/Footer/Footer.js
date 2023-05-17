@@ -27,6 +27,7 @@ export class Footer extends Component {
                             <ul class="footer__translation-lang">
                                 <li class="footer__translation-leng style-text-medium" data-locale="ru-RU">Рус</li>
                                 <li class="footer__translation-leng style-text-medium" data-locale="en-US">Eng</li>
+                                <li class="footer__translation-leng style-text-medium" data-locale="es-ES">Esp</li>
                             </ul>
                         </div>
                     </div>
