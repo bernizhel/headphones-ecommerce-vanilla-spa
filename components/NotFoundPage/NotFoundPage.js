@@ -1,7 +1,7 @@
 import { Component } from '../../utils/render/Component.js';
 import {
     getLocalizedNumber,
-    getLocalizedText
+    getLocalizedText,
 } from '../../service/i18nStore.js';
 import { changeRoute } from '../../service/routerStore.js';
 

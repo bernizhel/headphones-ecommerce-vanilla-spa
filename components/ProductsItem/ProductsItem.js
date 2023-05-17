@@ -2,7 +2,7 @@ import { Component } from '../../utils/render/Component.js';
 import {
     getLocalizedCurrency,
     getLocalizedNumber,
-    getLocalizedText
+    getLocalizedText,
 } from '../../service/i18nStore.js';
 import { addToCart } from '../../service/cartStore.js';
 import {
@@ -40,10 +40,10 @@ export class ProductsItem extends Component {
 
         const likeButton = productsItem.querySelector('.product__info_like');
         if (isFavorite(this.props.id)) {
-            likeButton.children[0].classList.add('product__info_like-passive');
+            likeButton.children[ 0 ].classList.add('product__info_like-passive');
             likeButton.addEventListener('click', () => removeFromFavorites.call(this.props.id));
         } else {
-            likeButton.children[0].classList.add('product__info_like-active');
+            likeButton.children[ 0 ].classList.add('product__info_like-active');
             likeButton.addEventListener('click', () => addToFavorites.call(this.props));
         }
 

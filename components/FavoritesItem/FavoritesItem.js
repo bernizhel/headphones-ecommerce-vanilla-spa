@@ -2,7 +2,7 @@ import { Component } from '../../utils/render/Component.js';
 import {
     getLocalizedCurrency,
     getLocalizedNumber,
-    getLocalizedText
+    getLocalizedText,
 } from '../../service/i18nStore.js';
 import { removeFromFavorites } from '../../service/favoritesStore.js';
 import { addToCart } from '../../service/cartStore.js';

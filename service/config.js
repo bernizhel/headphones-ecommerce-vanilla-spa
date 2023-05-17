@@ -6,7 +6,7 @@ import { $productsStore } from './productsStore.js';
 
 /** @type {import('../utils/store/Store.js').Store[]} */
 const stores = [
-    $routerStore, $i18nStore, $cartStore, $favoritesStore, $productsStore
+    $routerStore, $i18nStore, $cartStore, $favoritesStore, $productsStore,
 ];
 
 export function initStores() {

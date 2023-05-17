@@ -1,8 +1,11 @@
-import {defaultTranslation, fetchTranslationEntry} from '../api/translations.js';
-import {getUserLocales} from '../utils/i18n.js';
-import {LocalStorage} from '../utils/LocalStorage.js';
-import {Store} from '../utils/store/Store.js';
-import {StoreEvent} from '../utils/store/StoreEvent.js';
+import {
+    defaultTranslation,
+    fetchTranslationEntry,
+} from '../api/translations.js';
+import { getUserLocales } from '../utils/i18n.js';
+import { LocalStorage } from '../utils/LocalStorage.js';
+import { Store } from '../utils/store/Store.js';
+import { StoreEvent } from '../utils/store/StoreEvent.js';
 
 /**
  * @typedef {import('../api/translations.js').TranslationEntry} I18nState
@@ -40,7 +43,7 @@ function getInitialState() {
         state = defaultTranslation;
     }
 
-    document.documentElement.setAttribute('lang', userLocales[0]);
+    document.documentElement.setAttribute('lang', userLocales[ 0 ]);
     i18nStorage.set(state);
     return state;
 }
@@ -62,7 +65,7 @@ function handleChangeLocale(state, newLocale) {
  * @returns {string} translated text by given tag
  */
 export function getLocalizedText(tag) {
-    return $i18nStore.getState().translation[tag] || tag;
+    return $i18nStore.getState().translation[ tag ] || tag;
 }
 
 /**
@@ -71,7 +74,7 @@ export function getLocalizedText(tag) {
  * @returns {string} localized currency by given amount
  */
 export function getLocalizedCurrency(amount, options = {}) {
-    return new Intl.NumberFormat($i18nStore.getState().locales[0], {
+    return new Intl.NumberFormat($i18nStore.getState().locales[ 0 ], {
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol',
@@ -86,7 +89,7 @@ export function getLocalizedCurrency(amount, options = {}) {
  * @returns {string} localized number by given amount
  */
 export function getLocalizedNumber(amount, options = {}) {
-    return new Intl.NumberFormat($i18nStore.getState().locales[0], options).format(amount);
+    return new Intl.NumberFormat($i18nStore.getState().locales[ 0 ], options).format(amount);
 }
 
 /**

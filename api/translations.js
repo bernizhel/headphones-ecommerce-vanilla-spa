@@ -65,7 +65,8 @@ export const translations = [
     },
 ];
 
-export const defaultTranslation = translations.find((entry) => entry.locales.includes('en'));
+export const defaultTranslation = translations.find(
+    (entry) => entry.locales.includes('en'));
 
 /**
  * @param {Locale} locale

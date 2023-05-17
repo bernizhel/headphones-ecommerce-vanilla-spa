@@ -1,6 +1,9 @@
 import { Component } from '../../utils/render/Component.js';
 import { $cartStore, getTotalPrice } from '../../service/cartStore.js';
-import { getLocalizedCurrency, getLocalizedText } from '../../service/i18nStore.js';
+import {
+    getLocalizedCurrency,
+    getLocalizedText,
+} from '../../service/i18nStore.js';
 import { CartItem } from '../CartItem/CartItem.js';
 
 export class CartPage extends Component {
@@ -26,7 +29,8 @@ export class CartPage extends Component {
             </section>
         `;
 
-        cartPage.querySelector('.cart__products_container').append(...cartItems.map(itemData => new CartItem(itemData).buildDOM()));
+        cartPage.querySelector('.cart__products_container')
+            .append(...cartItems.map(itemData => new CartItem(itemData).buildDOM()));
 
         return cartPage;
     }
