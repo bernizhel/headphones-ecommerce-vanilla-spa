@@ -15,7 +15,9 @@ export const removeFromFavorites = new StoreEvent();
 /** @type {StoreEvent<FavoritesState>} */
 export const updateFavoritesStore = new StoreEvent();
 
+/** @type {string} */
 const FAVORITES_KEY = 'favorites';
+
 /** @type {LocalStorage<FavoritesState>} */
 const favoritesStorage = new LocalStorage(FAVORITES_KEY);
 
@@ -31,6 +33,15 @@ export const $favoritesStore = new Store(getInitialState)
  * @returns {FavoritesState}
  */
 function getInitialState() {
+    window.addEventListener('storage', event => {
+        if (!(event.key === FAVORITES_KEY && event.storageArea ===
+            localStorage)) {
+            return;
+        }
+
+        updateFavoritesStore.call();
+    });
+
     if (favoritesStorage.isSet()) {
         return favoritesStorage.get();
     }
